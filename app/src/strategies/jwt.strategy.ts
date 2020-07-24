@@ -17,7 +17,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: false,
+      issuer: "https://accounts.motionperfect.eu",
+      audience: "https://api.motionperfect.eu",
       secretOrKeyProvider: async (request, rawJwtToken, done) => {
         const token = this.jwtService.decode(rawJwtToken, { complete: true });
         let error, key = null;
