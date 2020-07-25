@@ -3,6 +3,8 @@ import { PassportModule } from "@nestjs/passport";
 import { JwtModule } from "@nestjs/jwt";
 import { APP_GUARD } from "@nestjs/core";
 
+import { ConfigModule } from "../../config/config.module";
+
 import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
 
@@ -15,6 +17,7 @@ const Services = [
 
 @Module({
   imports: [
+    ConfigModule,
     PassportModule,
     JwtModule.register({})
   ],
