@@ -2,19 +2,27 @@ import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 
 import { AppConfigModule } from './app/app.module';
-import { JWTConfigModule } from './jwt/jwt.module';
+import { JwtConfigModule } from './jwt/jwt.module';
 
-import schema from './schema';
+import { schema as configSchema } from './schema';
+import { HttpConfigModule } from './http/http.module';
+import { JwkConfigModule } from './jwk/jwk.module';
 
-const Modules = [AppConfigModule, JWTConfigModule];
+const Modules = [
+  AppConfigModule,
+  JwtConfigModule,
+  HttpConfigModule,
+  JwkConfigModule,
+];
 
 @Module({
   imports: [
     NestConfigModule.forRoot({
-      validationSchema: schema,
+      validationSchema: configSchema,
+      expandVariables: true,
     }),
     ...Modules,
   ],
-  exports: Modules,
+  exports: [...Modules],
 })
 export class ConfigModule {}

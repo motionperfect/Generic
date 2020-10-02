@@ -1,13 +1,13 @@
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 
-import { JWTConfigService } from './jwt.service';
+import { JwtConfigService } from '.';
 
-const Services = [JWTConfigService];
+const Services = [JwtConfigService];
 
 @Module({
   imports: [NestConfigModule],
   providers: [...Services],
   exports: [...Services],
 })
-export class JWTConfigModule {}
+export class JwtConfigModule {}
