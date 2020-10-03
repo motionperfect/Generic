@@ -3,10 +3,10 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import { JwtConfigService } from '../../../config/jwt';
+import { JwtConfigService } from '../../config/security/jwt';
 
 import { InvalidTokenException } from '../exception';
-import { JwkService } from '../../jwk';
+import { JwkService } from '../../security/jwk';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

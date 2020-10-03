@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 
-import { JwkConfigService } from '.';
+import { JwkConfigService } from './index';
 
 const Services = [JwkConfigService];
 

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { HttpConfigModule } from '../../config/http/http.module';
+import { HttpConfigModule } from '../../config/IO/http/http.module';
 
-import { HttpService } from '.';
+import { HttpService } from './index';
 
 @Module({
   imports: [HttpConfigModule],

@@ -1,7 +1,7 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 
-import { HttpConfigService } from '.';
+import { HttpConfigService } from './index';
 
 @Module({
   imports: [

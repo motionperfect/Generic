@@ -3,8 +3,8 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 
-import { ConfigModule } from '../../config/config.module';
-import { JwkModule } from '../jwk/jwk.module';
+import { ConfigModule } from '../config/config.module';
+import { JwkModule } from '../security/jwk/jwk.module';
 
 import { JwtStrategy } from './strategy';
 import { HttpExceptionFilter } from './filter';

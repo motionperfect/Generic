@@ -2,11 +2,11 @@ import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 
 import { AppConfigModule } from './app/app.module';
-import { JwtConfigModule } from './jwt/jwt.module';
+import { JwtConfigModule } from './security/jwt/jwt.module';
 
 import { schema as configSchema } from './schema';
-import { HttpConfigModule } from './http/http.module';
-import { JwkConfigModule } from './jwk/jwk.module';
+import { HttpConfigModule } from './IO/http/http.module';
+import { JwkConfigModule } from './security/jwk/jwk.module';
 
 const Modules = [
   AppConfigModule,

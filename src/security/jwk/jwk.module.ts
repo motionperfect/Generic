@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 
-import { HttpConfigModule } from '../../config/http/http.module';
-import { JwkConfigModule } from '../../config/jwk/jwk.module';
+import { HttpConfigModule } from '../../config/IO/http/http.module';
+import { JwkConfigModule } from '../../config/security/jwk/jwk.module';
 
-import { JwkService } from '.';
+import { JwkService } from './index';
 
 const Services = [JwkService];
 

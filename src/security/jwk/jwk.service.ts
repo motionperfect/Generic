@@ -1,8 +1,8 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { JWK } from 'node-jose';
 
-import { HttpService, createHttpCache } from '../http';
-import { JwkConfigService } from '../../config/jwk';
+import { HttpService, createHttpCache } from '../../IO/http';
+import { JwkConfigService } from '../../config/security/jwk';
 
 import { HttpTimeoutException, PublicKeyNotFoundException } from './exception';
 
@@ -47,6 +47,10 @@ export class JwkService implements OnModuleInit {
   }
 
   async onModuleInit(): Promise<void> {
-    await this.downloadKeysFromNetwork();
+    try {
+      await this.downloadKeysFromNetwork();
+    } catch (err) {
+      this.logger.error(err.message);
+    }
   }
 }
