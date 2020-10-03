@@ -1,7 +1,7 @@
 import { UnauthorizedException } from '@nestjs/common';
 
 export class InvalidTokenException extends UnauthorizedException {
-  constructor(message = 'Missing or invalid bearer token.') {
+  constructor(message = 'Invalid bearer token.') {
     super(message);
   }
 }
