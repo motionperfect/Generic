@@ -4,11 +4,11 @@ import { HealthService } from '.';
 
 import { NoAuth } from '../../security/auth/decorator';
 
+@NoAuth()
 @Controller('/health')
 export class HealthController {
   constructor(private readonly healthService: HealthService) {}
 
-  @NoAuth()
   @Get('/ping')
   @HttpCode(HttpStatus.OK)
   ping() {
