@@ -36,7 +36,7 @@ export class JwkService implements OnModuleInit {
         })
         .toPromise();
 
-      if (isFromCache === true) {
+      if (isFromCache === false) {
         this.keyStore = await JWK.asKeyStore(response.data);
         this.logger.log('Successfully updated keystore');
       }
