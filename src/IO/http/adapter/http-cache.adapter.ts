@@ -1,8 +1,5 @@
 import { ICacheLike } from 'axios-extensions';
-import Duration from 'dayjs/plugin/duration';
-import dayjs from 'dayjs';
-
-dayjs.extend(Duration);
+import moment from 'moment';
 
 export class HttpCacheAdapter<T> implements ICacheLike<T> {
   private readonly cache = new Map<string, T>();
@@ -25,7 +22,7 @@ export class HttpCacheAdapter<T> implements ICacheLike<T> {
 
     const timer = setTimeout(
       this.del.bind(this),
-      dayjs.duration({ minutes: this.maxAge }).asMilliseconds(),
+      moment.duration(this.maxAge, 'minutes').asMilliseconds(),
       key,
     );
     this.timers.set(key, timer);

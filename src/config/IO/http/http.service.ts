@@ -6,25 +6,23 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { cacheAdapterEnhancer } from 'axios-extensions';
 import axios from 'axios';
-import Duration from 'dayjs/plugin/duration';
-import dayjs from 'dayjs';
-
-dayjs.extend(Duration);
+import moment from 'moment';
 
 @Injectable()
 export class HttpConfigService implements HttpModuleOptionsFactory {
-  constructor(private readonly configService: ConfigService) {}
+  constructor (private readonly configService: ConfigService) {}
 
-  createHttpOptions(): HttpModuleOptions {
+  createHttpOptions (): HttpModuleOptions {
     return {
-      timeout: dayjs
-        .duration({
-          seconds: this.configService.get<number>('HTTP_TIMEOUT'),
-        })
-        .asMilliseconds(),
-      adapter: cacheAdapterEnhancer(axios.defaults.adapter, {
-        enabledByDefault: false,
-      }),
+      timeout: moment.duration(
+        this.configService.get<number>('HTTP_TIMEOUT'),
+        'seconds',
+      ).asMilliseconds(),
+      adapter: cacheAdapterEnhancer(
+        axios.defaults.adapter,
+        {
+          enabledByDefault: false,
+        }),
     };
   }
 }

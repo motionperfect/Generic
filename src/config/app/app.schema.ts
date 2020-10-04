@@ -1,4 +1,4 @@
-import * as Joi from '@hapi/joi';
+import Joi from '@hapi/joi';
 
 export const schema = {
   APP_PORT: Joi.number()
@@ -6,4 +6,8 @@ export const schema = {
     .min(80)
     .max(65535)
     .default(3000),
+
+  NODE_ENV: Joi.string()
+    .valid(...['development', 'production'])
+    .default('development')
 };
