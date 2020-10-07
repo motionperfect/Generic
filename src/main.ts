@@ -1,5 +1,4 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
 import { useContainer } from 'class-validator';
 
 import { AppModule } from './app/app.module';
@@ -16,13 +15,6 @@ async function bootstrap() {
    * class-validator modules to nestJS
    */
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
-
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-      forbidUnknownValues: true,
-    }),
-  );
 
   await app.listen(appConfigService.port);
 }
