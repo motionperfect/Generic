@@ -5,7 +5,7 @@ Starter template for protected micro-service.
 ## Requirements
 
 1. Node.js 12.x
-2. ECDSA JWKS endpoint (ex: Gandalf)
+2. ECDSA JWKS endpoint (ex: [Gandalf](https://github.com/motionperfect/Gandalf))
 
 ## Installation
 
